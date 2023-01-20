@@ -26,6 +26,10 @@ class MyWin:
         self.btn5 = Button(win,text="Clear")
         self.btn5.bind('<Button-1>',self.delete)
         self.btn5.place(x=300,y=200)
+        self.btn3 = Button(win, text="Multipication", command = self.multiplication)
+        self.btn3.place(x=300,y=150)
+        self.btn4 = Button(win, text="Division", command = self.division)
+        self.btn4.place(x=390,y=150)
 
     def addition(self,event):
         self.txt3.delete(0,'end')
@@ -38,11 +42,26 @@ class MyWin:
         self.txt3.delete(0, 'end')
         num1 = int(self.txt1.get())
         num2 = int(self.txt2.get())
-        result = num1 - num2
+        result = num1-num2
+        self.txt3.insert(END, str(result))
+
+    def multiplication(self):
+         self.txt3.delete(0, 'end')
+         num1 = int(self.txt1.get())
+         num2 = int(self.txt2.get())
+         result = num1*num2
+         self.txt3.insert(END, str(result))
+
+    def division(self):
+        self.txt3.delete(0, 'end')
+        num1 = int(self.txt1.get())
+        num2 = int(self.txt2.get())
+        result = num1/num2
         self.txt3.insert(END, str(result))
 
     def delete(self,event):
         self.txt3.delete(0,'end')
+
 mywin = MyWin(win)
 
 
